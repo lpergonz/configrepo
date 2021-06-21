@@ -1,8 +1,3 @@
-my:
-    greeting: Hello World from config server
-    list:
-       values:  One,    Two,    Three,  Four 
-
 db:
    connection: connection-string-here-here-from-config-server
    host: 127.0.0.1

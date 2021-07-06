@@ -1,0 +1,21 @@
+server:
+  port: 8094
+  
+spring:
+  application:
+    name: creditcard-management
+  data:
+    mongodb:
+#config local      uri: mongodb://localhost:12500/creditcard-management
+      uri: mongodb://bootcamb-db:uMamqpjJ0iG4gPsLyJXEAaqfW8685r2SEWaIYmBvtH9aYigkhka31qHcEazga17iyFoWmkEHbZNQRpQAUdTnbg==@bootcamb-db.mongo.cosmos.azure.com:10255/customer?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@bootcamb-db@
+
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8099/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    hostname: localhost

@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+eureka:
+  instance:
+    hostname: lpergonz-spring-eureka-server.azurewebsites.net
+  client:
+    serviceUrl:
+      defaultZone: https://${eureka.instance.hostname}:443/eureka/
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: natural-client
+        uri: lb://natural-client
+        predicates:
+        - Path=/natural-client/**
+      - id: business-client
+        uri: lb://business-client
+        predicates:
+        - Path=/business-client/**
+      - id: legal-representative
+        uri: lb://legal-representative
+        predicates:
+        - Path=/legal-representative/**
+      - id: creditcard
+        uri: lb://creditcard
+        predicates:
+        - Path=/creditcard/**
+      - id: debitcard
+        uri: lb://debitcard
+        predicates:
+        - Path=/debitcard/**
+      - id: credit
+        uri: lb://credit
+        predicates:
+        - Path=/credit/**
+      - id: creditcard-management
+        uri: lb://creditcard-management
+        predicates:
+        - Path=/creditcard-management/**
+      - id: debitcard-management
+        uri: lb://debitcard-management
+        predicates:
+        - Path=/debitcard-management/**
+      - id: credit-management
+        uri: lb://credit-management
+        predicates:
+        - Path=/credit-management/**

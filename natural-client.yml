@@ -1,21 +1,35 @@
 server:
-  port: 8090
+  port: 8081
   
 spring:
   application:
     name: natural-client
   data:
     mongodb:
-#config local      uri: mongodb://localhost:12500/natural-client
-      uri: mongodb://bootcamb-db:uMamqpjJ0iG4gPsLyJXEAaqfW8685r2SEWaIYmBvtH9aYigkhka31qHcEazga17iyFoWmkEHbZNQRpQAUdTnbg==@bootcamb-db.mongo.cosmos.azure.com:10255/customer?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@bootcamb-db@
+      uri: mongodb://localhost:27017/natural-client
+     
+    kafka:
+      bootstrap-servers: localhost:9092
+      
+    redis:
+       database: 0
+       host: localhost
+       port: 6379
+       timeout: 60000
+       password: 1234
+   
+gateway:
+   baseUrl: http://localhost:8080
+   
+#eureka:
+  #client:
+    #serviceUrl:
+      #defaultZone: http://${eureka.instance.hostname}:8099/eureka/
+    #register-with-eureka: true
+    #fetch-registry: true
+  #instance:
+    #prefer-ip-address: true #false si va ip
+    #hostname: localhost #azure reemplazo de local  192.168.1.11
+    
 
     
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8099/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
-    hostname: localhost
